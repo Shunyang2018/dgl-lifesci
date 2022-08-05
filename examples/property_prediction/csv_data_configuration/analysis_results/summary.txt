@@ -1,0 +1,30 @@
+General statistics
+============================================================
+Number of input molecules: 4253
+Number of valid molecules: 4252
+Percentage of valid molecules: 99.9764871855161 %
+Average number of atoms per molecule: 29.3447789275635 +- 13.046830712826447
+Average number of bonds per molecule: 31.527516462841017 +- 14.47370682383914
+Average number of rings per molecule: 3.199200376293509 +- 1.929268872458892
+
+Atom statistics
+============================================================
+atom_type frequency: {'C': 4252, 'O': 4143, 'N': 1471, 'S': 281, 'Cl': 225, 'P': 35, 'F': 163, 'Br': 14, 'I': 10, 'B': 2, 'As': 1, 'Se': 1}
+degree frequency: {1: 4238, 2: 4248, 3: 4248, 4: 1865}
+total_degree frequency: {1: 3698, 2: 4088, 3: 4203, 4: 4121}
+explicit_valence frequency: {1: 4175, 2: 4218, 3: 4179, 4: 4222, 6: 122, 5: 36}
+implicit_valence frequency: {0: 4247, 1: 4223, 2: 3682, 3: 3522}
+hybridization frequency: {'SP2': 4192, 'SP3': 4136, 'SP': 76}
+total_num_h frequency: {0: 4247, 1: 4232, 2: 3682, 3: 3522}
+formal_charge frequency: {0: 4252, 1: 57, -1: 56}
+num_radical_electrons frequency: {0: 4252}
+aromatic_atom frequency: {False: 4248, True: 2774}
+chirality_tag frequency: {'CHI_UNSPECIFIED': 4252, 'CHI_TETRAHEDRAL_CCW': 97, 'CHI_TETRAHEDRAL_CW': 95}
+
+Bond statistics
+============================================================
+bond_type frequency: {'DOUBLE': 3821, 'SINGLE': 4241, 'AROMATIC': 2774, 'TRIPLE': 73}
+conjugated_bond frequency: {False: 4136, True: 4052}
+bond_stereo_configuration frequency: {'STEREONONE': 4252, 'STEREOE': 20, 'STEREOZ': 5}
+bond_direction frequency: {'NONE': 4252, 'ENDUPRIGHT': 23, 'ENDDOWNRIGHT': 7}
+
