@@ -15,6 +15,8 @@ from tqdm import tqdm
 
 from utils import mkdir_p, collate_molgraphs_unlabeled, load_model, predict, init_featurizer
 
+from rdkit import Chem
+
 def main(args):
     mol_to_g = MolToBigraph(add_self_loop=True,
                             node_featurizer=args['node_featurizer'],
@@ -38,8 +40,14 @@ def main(args):
             predictions.append(batch_pred.detach().cpu())
 
     predictions = torch.cat(predictions, dim=0)
+    inchikey_list = []
+    for smi in args['smiles']:
+        mol = Chem.MolFromSmiles(smi)
+        if mol is None:
+            continue
+        inchikey_list.append(Chem.MolToInchiKey(mol))
 
-    output_data = {'canonical_smiles': smiles_list}
+    output_data = {'canonical_smiles': smiles_list,'inchikey':inchikey_list}
     if args['task_names'] is None:
         args['task_names'] = ['task_{:d}'.format(t) for t in range(1, args['n_tasks'] + 1)]
     else:
@@ -97,6 +105,7 @@ if __name__ == '__main__':
         raise ValueError('Expect the input data file to be a .csv or a .txt file, '
                          'got {}'.format(args['file_path']))
     args['smiles'] = smiles
+    print('# smiles:'+str(len(smiles)))
     args = init_featurizer(args)
     # Handle directories
     mkdir_p(args['inference_result_path'])
